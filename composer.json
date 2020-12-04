@@ -1,0 +1,32 @@
+{
+    "name": "amerald/eloquent-toolkit",
+    "description": "Brings attributes validation and other cool features to Eloquent",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Illia Balia",
+            "email": "illia.balia@ameraldcraft.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "laravel/framework": ">=5.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "*",
+        "orchestra/testbench": "*",
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amerald\\Eloquent\\": "app/",
+            "Amerald\\Eloquent\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
