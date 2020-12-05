@@ -2,7 +2,9 @@
 Enjoy Eloquent attributes validation and other cool features.
 
 ## Installation
-`composer require amerald/eloquent-toolkit`
+```
+composer require amerald/eloquent-toolkit
+```
 
 ## Usage
 ### Attributes Validation
