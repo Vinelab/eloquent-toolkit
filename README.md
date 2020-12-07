@@ -49,7 +49,7 @@ By default automation is performed on `saving` event
 When validation at runtime is enabled, an attribute is validated immediately upon setting/getting.
 Each time a new validator instance is constructed.
 
-Runtime validation is enabled by default. It can be disabled by overriding `static::$shouldValidateAtRuntime = false` property or calling `static::disableRuntimeValidation()` method.
+Runtime validation is enabled by default. It can be disabled by calling a static `disableRuntimeValidation()` method.
 
 ```php
 $post = new Post();
