@@ -41,7 +41,8 @@ The email field is required."
             "The name must be a string."
         ));
 
-        $model->name = false;
+        $model->name = false; //set
+        $model->name; // get
     }
 
     public function testShouldNotValidateAtRuntime()
@@ -49,7 +50,8 @@ The email field is required."
         $model = new Model();
         $model::disableRuntimeValidation();
 
-        $model->name = false;
+        $model->name = false; // set
+        $model->name; // get
 
         // If an exception is thrown, we won't be able to get here
         $this->assertTrue(true);
