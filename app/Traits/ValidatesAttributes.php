@@ -76,11 +76,13 @@ trait ValidatesAttributes
         }
 
         // Get rule for current attribute
-        $rule = [$key => Arr::get($this->rules(), $key)];
+        $rule = Arr::get($this->rules(), $key);
 
         if (!$rule) {
             return $attribute;
         }
+
+        $rule = [$key => $rule];
 
         $validator = Validator::make([$key => $this->attributes[$key]], $rule);
 
@@ -108,11 +110,13 @@ trait ValidatesAttributes
         }
 
         // Get rule for current attribute
-        $rule = [$key => Arr::get($this->rules(), $key)];
+        $rule = Arr::get($this->rules(), $key);
 
         if (!$rule) {
             return $attribute;
         }
+
+        $rule = [$key => $rule];
 
         $validator = Validator::make([$key => $this->attributes[$key] ?? null], $rule);
 

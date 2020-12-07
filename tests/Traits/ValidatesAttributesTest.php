@@ -17,6 +17,7 @@ class ValidatesAttributesTest extends TestCase
             $table->string('name');
             $table->string('email');
             $table->string('address')->nullable();
+            $table->string('attribute_without_rules');
         });
     }
 
@@ -83,5 +84,16 @@ The email field is required."
         $this->expectExceptionMessage('The address must be a string.');
 
         $model->validate();
+    }
+
+    public function testShouldNotValidateAttributesWithoutRules()
+    {
+        Model::enableRuntimeValidation();
+        $model = new Model();
+        $model->attribute_without_rules = null; //set
+        $model->attribute_without_rules; // get
+
+        // If an exception is thrown, we won't be able to get here
+        $this->assertTrue(true);
     }
 }

@@ -14,6 +14,7 @@ class Model extends \Illuminate\Database\Eloquent\Model
         'name',
         'email',
         'address',
+        'attribute_without_rules'
     ];
 
     protected function rules(): array
