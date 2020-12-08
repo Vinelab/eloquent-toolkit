@@ -105,7 +105,7 @@ class Post extends Model
         
     public $timestamps = false;
     
-    protected function uuidColumns(): array
+    public function uuidColumns(): array
     {
         return [
             'id',
