@@ -25,19 +25,24 @@ trait GeneratesUUID
      *
      * @return string[]
      */
-    protected function uuidColumns(): array
+    public function uuidColumns(): array
     {
         return ['id'];
+    }
+
+    public static function generateUUID(Model $model, bool $override = false)
+    {
+        foreach ($model->uuidColumns() as $uuidColumn) {
+            if ($override || !$model->{$uuidColumn}) {
+                $model->{$uuidColumn} = (string) Str::uuid();
+            }
+        }
     }
 
     protected static function bootGeneratesUUID()
     {
         static::creating(function (Model $model) {
-            foreach ($model->uuidColumns() as $uuidColumn) {
-                if (!$model->{$uuidColumn}) {
-                    $model->{$uuidColumn} = (string) Str::uuid();
-                }
-            }
+            static::generateUUID($model);
         });
     }
 }
