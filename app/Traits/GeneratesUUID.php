@@ -5,21 +5,18 @@ namespace Amerald\Eloquent\Traits;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-/**
- * Trait GeneratesUUID
- *
- * Automatically generates a UUID on Eloquent 'creating' event.
- *
- * Note: in order to use UUID as the primary key, the following needs to be added to the model
- * ```
- *     public $incrementing = false;
- *     public $timestamps = false;
- * ```
- *
- * Otherwise, Eloquent will replace the UUID with an integer.
- */
 trait GeneratesUUID
 {
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
     /**
      * Define columns for which a UUID needs to be generated.
      *
