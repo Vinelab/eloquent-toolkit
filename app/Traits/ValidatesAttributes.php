@@ -52,10 +52,15 @@ trait ValidatesAttributes
 
     /**
      * Validate attributes.
+     * 
+     * @param  array  $additionalRules
      */
-    public function validate()
+    public function validate(array $additionalRules = [])
     {
-        $validator = Validator::make($this->attributesToArray(), $this->rules());
+        $validator = Validator::make(
+            $this->attributesToArray(), 
+            array_merge($additionalRules, $this->rules())
+        );
 
         try {
             $validator->validate();
