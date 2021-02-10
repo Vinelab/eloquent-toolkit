@@ -2,7 +2,6 @@
 
 namespace Amerald\Eloquent\Traits;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 trait GeneratesUUID
@@ -27,7 +26,7 @@ trait GeneratesUUID
         return ['id'];
     }
 
-    public static function generateUUID(Model $model, bool $override = false)
+    public static function generateUUID($model, bool $override = false)
     {
         foreach ($model->uuidColumns() as $uuidColumn) {
             if ($override || !$model->{$uuidColumn}) {
@@ -38,7 +37,7 @@ trait GeneratesUUID
 
     protected static function bootGeneratesUUID()
     {
-        static::creating(function (Model $model) {
+        static::creating(function ($model) {
             static::generateUUID($model);
         });
     }
